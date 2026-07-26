@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Twelfth & Arlington Music Group | City Heat of Atlanta</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ═══════════════════════════════════════════
+       RESET & BASE
+    ════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E2C06A;
+      --gold-dark: #A8873A;
+      --black: #0a0a0a;
+      --white: #ffffff;
+      --text-dark: #1a1a1a;
+      --text-mid: #444;
+
+      /* Fluid section padding: shrinks on smaller screens */
+      --section-x: clamp(24px, 5vw, 80px);
+      --section-y: clamp(48px, 7vw, 88px);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text-dark);
+      background: var(--white);
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    img, video { max-width: 100%; height: auto; display: block; }
+
+    /* ═══════════════════════════════════════════
+       FLUID CONTAINER
+    ════════════════════════════════════════════ */
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: var(--section-x);
+      padding-right: var(--section-x);
+    }
+
+    /* ═══════════════════════════════════════════
+       HEADER
+    ════════════════════════════════════════════ */
+    #header {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: clamp(14px, 2vw, 22px) clamp(20px, 4vw, 56px);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, transparent 100%);
+      transition: background 0.3s, padding 0.3s;
+    }
+    #header.scrolled {
+      position: fixed;
+      background: rgba(0,0,0,0.94);
+    }
+
+    /* ── LOGO BLOCK ─────────────────────────── */
+    .logo-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+      line-height: 1;
+      text-align: center;
+    }
+
+    /* Row 1: TWELFTH & ARLINGTON */
+    .logo-name {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(13px, 1.45vw, 21px);
+      letter-spacing: 3px;
+      color: var(--white);
+      white-space: nowrap;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+    .logo-name .amp { color: var(--white); }
+
+    /* Row 2: — MUSIC GROUP — */
+    .logo-mg {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: clamp(7px, 0.68vw, 10px);
+      letter-spacing: 4px;
+      color: var(--gold);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      width: 100%;
+      justify-content: center;
+      margin: 4px 0 3px;
+    }
+    .logo-mg .dash { flex: 1; height: 1px; background: var(--gold); opacity: 0.7; min-width: 14px; }
+
+    /* Row 3: FEATURING */
+    .logo-featuring {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      font-size: clamp(7px, 0.62vw, 9px);
+      letter-spacing: 5px;
+      color: rgba(255,255,255,0.75);
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* Row 4: City Heat script */
+    .logo-script {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(30px, 3.4vw, 50px);
+      color: var(--gold);
+      line-height: 1;
+      margin-top: 0px;
+      /* Slight text-shadow for depth like the reference */
+      text-shadow: 0 1px 8px rgba(0,0,0,0.45);
+    }
+
+    /* Row 5: BAND ATLANTA */
+    .logo-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: clamp(7px, 0.62vw, 9px);
+      letter-spacing: 5px;
+      color: rgba(255,255,255,0.75);
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* Desktop Nav */
+    nav#main-nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(20px, 3vw, 40px);
+      flex: 1;
+      justify-content: center;
+    }
+    nav#main-nav a {
+      font-weight: 600;
+      font-size: clamp(9px, 0.8vw, 11px);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+    nav#main-nav a:hover { color: var(--gold); }
+    nav#main-nav a.active {
+      color: var(--white);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 3px;
+    }
+
+    .header-right { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+
+    .btn-availability {
+      font-weight: 700;
+      font-size: clamp(8px, 0.75vw, 11px);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1.5px solid var(--gold);
+      background: transparent;
+      padding: clamp(8px, 1vw, 11px) clamp(14px, 1.5vw, 22px);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .btn-availability:hover { background: var(--gold); color: var(--black); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span { width: 24px; height: 2px; background: var(--white); display: block; transition: 0.3s; }
+
+    /* Mobile nav overlay */
+    nav#main-nav.open {
+      display: flex !important;
+      flex-direction: column;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.97);
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+      z-index: 300;
+    }
+    nav#main-nav.open a {
+      font-size: 18px;
+      letter-spacing: 3px;
+    }
+    .close-menu {
+      position: absolute; top: 24px; right: 24px;
+      color: var(--white); font-size: 28px; cursor: pointer;
+      background: none; border: none;
+    }
+
+    /* ═══════════════════════════════════════════
+       HERO
+    ════════════════════════════════════════════ */
+    #hero {
+      position: relative;
+      width: 100%;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      background: url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1920&q=85') center center / cover no-repeat;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(0,0,0,0.84) 40%, rgba(0,0,0,0.55) 100%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: clamp(24px, 4vw, 60px);
+      padding: clamp(100px, 14vw, 180px) var(--section-x) clamp(60px, 8vw, 100px);
+    }
+
+    .hero-content {
+      flex: 0 0 auto;
+      width: 100%;
+      max-width: clamp(280px, 44%, 520px);
+    }
+
+    .hero-video-wrap {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+    .hero-video-ratio {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      background: #000;
+      box-shadow: 0 8px 48px rgba(0,0,0,0.6);
+      border: 1px solid rgba(201,168,76,0.35);
+    }
+    .hero-video-ratio iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    .hero-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 4.5vw, 64px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: clamp(14px, 2vw, 22px);
+    }
+
+    .hero-sub {
+      font-size: clamp(12px, 1.1vw, 15px);
+      font-weight: 400;
+      color: rgba(255,255,255,0.87);
+      margin-bottom: clamp(12px, 1.5vw, 18px);
+      line-height: 1.65;
+    }
+
+    .hero-para {
+      font-size: clamp(11px, 0.95vw, 14px);
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.75;
+      margin-bottom: clamp(28px, 3.5vw, 44px);
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: clamp(10px, 1.5vw, 18px);
+      flex-wrap: wrap;
+    }
+
+    /* Shared buttons */
+    .btn-gold {
+      font-weight: 700;
+      font-size: clamp(9px, 0.85vw, 12px);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: var(--black);
+      border: none;
+      padding: clamp(11px, 1.2vw, 15px) clamp(20px, 2vw, 30px);
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+      display: inline-block;
+      white-space: nowrap;
+    }
+    .btn-gold:hover { background: var(--gold-light); }
+
+    .btn-outline-white {
+      font-weight: 600;
+      font-size: clamp(9px, 0.85vw, 12px);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255,255,255,0.6);
+      padding: clamp(11px, 1.2vw, 15px) clamp(20px, 2vw, 30px);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: border-color 0.2s, color 0.2s;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .btn-outline-white:hover { border-color: var(--white); }
+    .btn-outline-white i { font-size: clamp(14px, 1.2vw, 18px); }
+
+    /* ═══════════════════════════════════════════
+       SECTION LABEL
+    ════════════════════════════════════════════ */
+    .section-label {
+      font-weight: 700;
+      font-size: clamp(9px, 0.75vw, 11px);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: clamp(28px, 3.5vw, 48px);
+      display: block;
+    }
+
+    /* ═══════════════════════════════════════════
+       WHY CITY HEAT
+    ════════════════════════════════════════════ */
+    #why {
+      background: var(--white);
+      padding: var(--section-y) var(--section-x);
+      text-align: center;
+    }
+
+    .why-cols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .why-col {
+      padding: clamp(16px, 2.5vw, 28px) clamp(24px, 3.5vw, 48px);
+      position: relative;
+    }
+
+    .why-col + .why-col::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 10%; height: 80%;
+      width: 1px;
+      background: #ddd;
+    }
+
+    .why-icon {
+      font-size: clamp(26px, 2.5vw, 36px);
+      color: var(--gold);
+      margin-bottom: clamp(12px, 1.5vw, 18px);
+    }
+
+    .why-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(14px, 1.3vw, 18px);
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: clamp(8px, 1vw, 12px);
+    }
+
+    .why-text {
+      font-size: clamp(11px, 0.9vw, 13px);
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    /* ═══════════════════════════════════════════
+       MEDIA / VIDEO
+    ════════════════════════════════════════════ */
+    #media-section {
+      background: var(--white);
+      padding: var(--section-y) var(--section-x);
+      border-top: 1px solid #eee;
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+      gap: clamp(20px, 3vw, 40px);
+      align-items: start;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .video-thumb {
+      position: relative;
+      border-radius: 2px;
+      overflow: hidden;
+      cursor: pointer;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+    }
+
+    .video-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+    }
+    .video-thumb:hover img { transform: scale(1.03); }
+
+    .video-overlay {
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .video-thumb:hover .video-overlay { background: rgba(0,0,0,0.55); }
+
+    .play-btn {
+      width: clamp(48px, 5vw, 68px);
+      height: clamp(48px, 5vw, 68px);
+      border-radius: 50%;
+      border: 2px solid var(--white);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white);
+      font-size: clamp(18px, 1.8vw, 24px);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .video-thumb:hover .play-btn { background: rgba(201,168,76,0.35); transform: scale(1.08); }
+
+    .media-right {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(14px, 2vw, 20px);
+    }
+
+    .media-cta-row {
+      display: flex;
+      align-items: center;
+      gap: clamp(16px, 2.5vw, 32px);
+      flex-wrap: wrap;
+    }
+
+    .media-cta-text {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(18px, 2vw, 28px);
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.3;
+      flex: 1;
+      min-width: 160px;
+    }
+
+    .btn-gold-sm {
+      font-weight: 700;
+      font-size: clamp(8px, 0.75vw, 11px);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: var(--black);
+      border: none;
+      padding: clamp(9px, 1vw, 13px) clamp(14px, 1.5vw, 22px);
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+      text-decoration: none;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+    .btn-gold-sm:hover { background: var(--gold-light); }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(4px, 0.5vw, 8px);
+    }
+
+    .photo-grid img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.2s;
+    }
+    .photo-grid img:hover { opacity: 0.82; }
+
+    .gallery-link {
+      font-weight: 700;
+      font-size: clamp(9px, 0.8vw, 11px);
+      letter-spacing: 1.5px;
+      color: var(--gold);
+      text-decoration: none;
+      text-transform: uppercase;
+      display: inline-block;
+      transition: color 0.2s;
+    }
+    .gallery-link:hover { color: var(--gold-dark); }
+
+    /* ═══════════════════════════════════════════
+       TESTIMONIALS
+    ════════════════════════════════════════════ */
+    #testimonials {
+      background: var(--white);
+      padding: var(--section-y) var(--section-x);
+      border-top: 1px solid #eee;
+    }
+
+    .testi-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .testi-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(14px, 2vw, 24px);
+    }
+
+    .testi-card {
+      text-align: center;
+      padding: clamp(22px, 2.5vw, 36px) clamp(16px, 2vw, 28px);
+      border: 1px solid #eee;
+    }
+
+    .stars {
+      color: var(--gold);
+      font-size: clamp(13px, 1.2vw, 17px);
+      margin-bottom: clamp(12px, 1.5vw, 18px);
+      letter-spacing: 2px;
+    }
+
+    .testi-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(12px, 1vw, 15px);
+      font-style: italic;
+      color: var(--text-dark);
+      line-height: 1.75;
+      margin-bottom: clamp(14px, 1.8vw, 22px);
+    }
+
+    .testi-source {
+      font-weight: 700;
+      font-size: clamp(8px, 0.7vw, 10px);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-mid);
+    }
+
+    .carousel-arrow {
+      display: none; /* shown via JS on mobile */
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: 1px solid #ccc;
+      width: 36px; height: 36px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      color: var(--text-mid);
+      transition: border-color 0.2s, color 0.2s;
+      z-index: 5;
+    }
+    .carousel-arrow:hover { border-color: var(--gold); color: var(--gold); }
+    .carousel-arrow.left { left: -48px; }
+    .carousel-arrow.right { right: -48px; }
+
+    /* ═══════════════════════════════════════════
+       CTA BANNER
+    ════════════════════════════════════════════ */
+    #cta-banner {
+      position: relative;
+      padding: clamp(72px, 10vw, 120px) var(--section-x);
+      text-align: center;
+      background: url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=1920&q=75') center center / cover no-repeat;
+    }
+    #cta-banner::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,0.74);
+    }
+
+    .cta-inner { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+
+    .cta-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3.8vw, 52px);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: clamp(8px, 1vw, 14px);
+    }
+
+    .cta-script {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(20px, 2.8vw, 40px);
+      color: var(--gold);
+      margin-bottom: clamp(28px, 3.5vw, 44px);
+      font-style: italic;
+    }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════════ */
+    #footer {
+      background: var(--white);
+      border-top: 1px solid #e5e5e5;
+      padding: clamp(28px, 4vw, 48px) var(--section-x) clamp(20px, 2.5vw, 28px);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: clamp(20px, 3vw, 40px);
+      align-items: center;
+      margin-bottom: clamp(20px, 3vw, 32px);
+    }
+
+    .footer-logo-block { display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .footer-logo-top {
+      font-weight: 700;
+      font-size: clamp(10px, 0.95vw, 14px);
+      letter-spacing: 2px;
+      color: var(--text-dark);
+    }
+    .footer-logo-top span { color: var(--gold); }
+    .footer-logo-top.light { font-size: clamp(8px, 0.75vw, 11px); letter-spacing: 2.5px; font-weight: 400; }
+    .footer-featuring {
+      font-size: clamp(6px, 0.55vw, 8px);
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-top: 2px;
+    }
+    .footer-script {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(20px, 2vw, 28px);
+      color: var(--gold);
+      line-height: 1;
+      margin-top: 3px;
+    }
+    .footer-sub-text {
+      font-size: clamp(6px, 0.6vw, 9px);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #999;
+    }
+
+    .footer-center { text-align: center; }
+    .footer-tagline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(12px, 1.1vw, 16px);
+      color: var(--gold);
+      font-style: italic;
+      margin-bottom: 6px;
+    }
+    .footer-location {
+      font-size: clamp(9px, 0.8vw, 12px);
+      color: var(--text-mid);
+      letter-spacing: 1px;
+    }
+
+    .footer-contact { text-align: right; }
+    .footer-contact a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: clamp(10px, 0.85vw, 13px);
+      color: var(--text-mid);
+      text-decoration: none;
+      margin-bottom: 8px;
+      justify-content: flex-end;
+      transition: color 0.2s;
+    }
+    .footer-contact a:hover { color: var(--gold); }
+    .footer-contact i { color: var(--gold); font-size: clamp(11px, 0.9vw, 14px); }
+
+    .footer-bottom {
+      border-top: 1px solid #eee;
+      padding-top: clamp(16px, 2vw, 22px);
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .social-icon {
+      width: clamp(32px, 2.8vw, 40px);
+      height: clamp(32px, 2.8vw, 40px);
+      border-radius: 50%;
+      background: var(--text-dark);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white);
+      font-size: clamp(12px, 1vw, 15px);
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .social-icon:hover { background: var(--gold); }
+
+    /* ═══════════════════════════════════════════
+       BREAKPOINTS
+    ════════════════════════════════════════════ */
+
+    /* ── 1440px and below ── */
+    @media (max-width: 1440px) {
+      .why-col { padding: 20px 32px; }
+    }
+
+    /* ── 1200px and below ── */
+    @media (max-width: 1200px) {
+      .media-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+        gap: 24px;
+      }
+    }
+
+    /* ── 992px — tablet landscape ── */
+    @media (max-width: 992px) {
+      nav#main-nav { gap: 20px; }
+      nav#main-nav a { font-size: 10px; }
+
+      .hero-inner { gap: 24px; }
+      .hero-content { max-width: 46%; }
+
+      .why-cols { max-width: 100%; }
+      .why-col { padding: 16px 24px; }
+
+      .media-grid { grid-template-columns: 1fr; }
+      .video-thumb { aspect-ratio: 16 / 9; }
+      .media-cta-row { gap: 20px; }
+
+      .testi-cards { gap: 16px; }
+
+      .footer-top { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; }
+      .footer-logo-block { grid-column: 1; }
+      .footer-contact { grid-column: 2; text-align: right; }
+      .footer-center { grid-column: 1 / -1; text-align: center; padding-top: 8px; border-top: 1px solid #eee; }
+    }
+
+    /* ── 768px — tablet portrait ── */
+    @media (max-width: 768px) {
+      nav#main-nav:not(.open) { display: none; }
+      .btn-availability { display: none; }
+      .hamburger { display: flex; }
+
+      .hero-inner {
+        flex-direction: column;
+        padding-top: clamp(90px, 22vw, 140px);
+      }
+      .hero-content {
+        max-width: 100%;
+      }
+      .hero-video-wrap {
+        width: 100%;
+        flex: none;
+      }
+      #hero::before {
+        background: rgba(0,0,0,0.72);
+      }
+
+      .why-cols { grid-template-columns: 1fr; }
+      .why-col + .why-col::before { display: none; }
+      .why-col {
+        padding: 20px 16px;
+        border-top: 1px solid #eee;
+      }
+
+      .media-grid { grid-template-columns: 1fr; }
+
+      .testi-cards { grid-template-columns: 1fr; }
+      .testi-card.hidden { display: none; }
+      .carousel-arrow { display: flex; }
+      .carousel-arrow.left { left: -8px; }
+      .carousel-arrow.right { right: -8px; }
+      .testi-inner { padding: 0 40px; }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .footer-logo-block { align-items: center; }
+      .footer-contact { text-align: center; }
+      .footer-contact a { justify-content: center; }
+      .footer-center { border-top: none; }
+    }
+
+    /* ── 576px — mobile ── */
+    @media (max-width: 576px) {
+      :root { --section-x: 20px; --section-y: 44px; }
+
+      .hero-buttons { flex-direction: column; align-items: flex-start; }
+      .hero-buttons .btn-gold,
+      .hero-buttons .btn-outline-white { width: 100%; justify-content: center; }
+
+      .media-cta-row { flex-direction: column; align-items: flex-start; }
+      .btn-gold-sm { width: 100%; text-align: center; }
+
+      .photo-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .why-col { padding: 18px 12px; }
+
+      .testi-inner { padding: 0 44px; }
+
+      .footer-top { gap: 20px; }
+    }
+
+    /* ── 430px and below ── */
+    @media (max-width: 430px) {
+      .logo-script { font-size: 22px; }
+      .logo-top { font-size: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     HEADER
+════════════════════════════════════════════ -->
+<header id="header">
+  <div class="logo-block">
+    <div class="logo-name">TWELFTH <span class="amp">&amp;</span> ARLINGTON</div>
+    <div class="logo-rule"></div>
+    <div class="logo-mg"><span class="dash"></span> MUSIC GROUP <span class="dash"></span></div>
+    <div class="logo-featuring">Featuring</div>
+    <div class="logo-script">City Heat</div>
+    <div class="logo-sub">Band Atlanta</div>
+  </div>
+
+  <nav id="main-nav">
+    <button class="close-menu" onclick="closeMenu()" aria-label="Close menu"><i class="fa fa-times"></i></button>
+    <a href="#" class="active">Home</a>
+    <a href="#media-section">Events</a>
+    <a href="#media-section">Media</a>
+    <a href="#footer">Contact</a>
+  </nav>
+
+  <div class="header-right">
+    <a href="#cta-banner" class="btn-availability">Check Availability</a>
+    <div class="hamburger" id="hamburger" onclick="openMenu()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════
+     HERO
+════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <h1 class="hero-headline" contenteditable="true">Bringing People Together Through Music</h1>
+      <p class="hero-sub" contenteditable="true">High-energy live entertainment for weddings, corporate events &amp; private celebrations.</p>
+      <p class="hero-para" contenteditable="true">We're a family helping other families, businesses, and organizations celebrate life's biggest moments—with professionalism, energy, and music that brings people together.</p>
+      <div class="hero-buttons">
+        <a href="#cta-banner" class="btn-gold">Check Availability</a>
+        <a href="#media-section" class="btn-outline-white"><i class="fa-regular fa-circle-play"></i> Watch the Band</a>
+      </div>
+    </div>
+    <div class="hero-video-wrap">
+      <div class="hero-video-ratio">
+        <iframe
+          src="https://www.youtube.com/embed/eTNvdwnhG3U"
+          title="City Heat Band — Live Performance"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     WHY CITY HEAT
+════════════════════════════════════════════ -->
+<section id="why">
+  <span class="section-label" style="text-align:center;">Why City Heat</span>
+  <div class="why-cols">
+    <div class="why-col">
+      <div class="why-icon"><i class="fa fa-music"></i></div>
+      <h3 class="why-title" contenteditable="true">High-Energy Entertainment</h3>
+      <p class="why-text" contenteditable="true">Music that keeps guests engaged and dance floors full.</p>
+    </div>
+    <div class="why-col">
+      <div class="why-icon"><i class="fa fa-handshake"></i></div>
+      <h3 class="why-title" contenteditable="true">Professional From Start to Finish</h3>
+      <p class="why-text" contenteditable="true">Clear communication. Thoughtful planning. Dependable execution.</p>
+    </div>
+    <div class="why-col">
+      <div class="why-icon"><i class="fa fa-heart"></i></div>
+      <h3 class="why-title" contenteditable="true">Family-Owned. Professionally Managed.</h3>
+      <p class="why-text" contenteditable="true">We treat every event with the same care, professionalism, and attention to detail we'd expect for our own.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FEATURED VIDEO / GALLERY
+════════════════════════════════════════════ -->
+<section id="media-section">
+  <span class="section-label">Featured Video</span>
+  <div class="media-grid">
+
+    <div class="video-thumb" onclick="playVideo()">
+      <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" alt="City Heat performing live" />
+      <div class="video-overlay">
+        <div class="play-btn"><i class="fa fa-play"></i></div>
+      </div>
+    </div>
+
+    <div class="media-right">
+      <div class="media-cta-row">
+        <p class="media-cta-text" contenteditable="true">See why clients choose City Heat.</p>
+        <a href="#" class="btn-gold-sm">Watch More Videos</a>
+      </div>
+      <div class="photo-grid">
+        <img src="https://images.unsplash.com/photo-1501612780327-45045538702b?w=400&q=75" alt="Event photo 1" />
+        <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=400&q=75" alt="Event photo 2" />
+        <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=400&q=75" alt="Event photo 3" />
+        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=400&q=75" alt="Event photo 4" />
+        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&q=75" alt="Event photo 5" />
+        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&q=75" alt="Event photo 6" />
+      </div>
+      <a href="#" class="gallery-link">View Photo Gallery &rsaquo;</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     TESTIMONIALS
+════════════════════════════════════════════ -->
+<section id="testimonials">
+  <span class="section-label" style="text-align:center; display:block;">Kind Words from Our Clients</span>
+  <div class="testi-inner">
+    <button class="carousel-arrow left" onclick="slideCarousel(-1)" aria-label="Previous">&#8249;</button>
+    <div class="testi-cards" id="testi-cards">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-quote" contenteditable="true">"City Heat exceeded every expectation. Our guests never left the dance floor."</p>
+        <p class="testi-source" contenteditable="true">— Bride</p>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-quote" contenteditable="true">"Professional from beginning to end. The entertainment was absolutely incredible."</p>
+        <p class="testi-source" contenteditable="true">— Corporate Client</p>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-quote" contenteditable="true">"They truly made our event unforgettable. We can't wait to work with them again."</p>
+        <p class="testi-source" contenteditable="true">— Event Planner</p>
+      </div>
+    </div>
+    <button class="carousel-arrow right" onclick="slideCarousel(1)" aria-label="Next">&#8250;</button>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     CTA BANNER
+════════════════════════════════════════════ -->
+<section id="cta-banner">
+  <div class="cta-inner">
+    <h2 class="cta-headline" contenteditable="true">Every Celebration Has a Story.</h2>
+    <p class="cta-script" contenteditable="true">We'd be honored to help tell yours.</p>
+    <a href="mailto:info@cityheatatlanta.com" class="btn-gold">Request a Proposal</a>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+<footer id="footer">
+  <div class="footer-top">
+    <div class="footer-logo-block">
+      <div class="logo-name" style="color:var(--text-dark);">TWELFTH <span class="amp">&amp;</span> ARLINGTON</div>
+      <div class="logo-rule"></div>
+      <div class="logo-mg" style="color:var(--gold);"><span class="dash"></span> MUSIC GROUP <span class="dash"></span></div>
+      <div class="logo-featuring" style="color:#999;">Featuring</div>
+      <div class="logo-script">City Heat</div>
+      <div class="logo-sub" style="color:#999;">Band Atlanta</div>
+    </div>
+    <div class="footer-center">
+      <p class="footer-tagline" contenteditable="true">Good Vibes • Good Music</p>
+      <p class="footer-location" contenteditable="true">Atlanta, Georgia | Available Nationwide</p>
+    </div>
+    <div class="footer-contact">
+      <a href="mailto:info@cityheatatlanta.com"><i class="fa fa-envelope"></i> info@cityheatatlanta.com</a>
+      <a href="tel:4045551234"><i class="fa fa-phone"></i> (404) 555-1234</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    <a href="#" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════
+     VIDEO MODAL
+════════════════════════════════════════════ -->
+<div id="video-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:999; align-items:center; justify-content:center;">
+  <button onclick="closeVideo()" style="position:absolute; top:20px; right:24px; background:none; border:none; color:#fff; font-size:32px; cursor:pointer; line-height:1;">&times;</button>
+  <div style="width:min(860px,92vw);position:relative;padding-bottom:min(56.25vw,483.75px);background:#000;">
+    <iframe
+      style="position:absolute;inset:0;width:100%;height:100%;border:none;"
+      src="https://www.youtube.com/embed/eTNvdwnhG3U"
+      title="City Heat Band — Live Performance"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  </div>
+</div>
+
+
+<script>
+  /* ── Mobile Nav ───────────────────────────── */
+  function openMenu() {
+    document.getElementById('main-nav').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    document.getElementById('main-nav').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('#main-nav a').forEach(a => a.addEventListener('click', closeMenu));
+
+  /* ── Video Modal ──────────────────────────── */
+  function playVideo() {
+    const m = document.getElementById('video-modal');
+    m.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeVideo() {
+    document.getElementById('video-modal').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  document.getElementById('video-modal').addEventListener('click', function(e) {
+    if (e.target === this) closeVideo();
+  });
+
+  /* ── Testimonial Carousel ─────────────────── */
+  let currentSlide = 0;
+  const MOBILE_BREAK = 768;
+
+  function isMobile() { return window.innerWidth <= MOBILE_BREAK; }
+
+  function initCarousel() {
+    const cards = document.querySelectorAll('.testi-card');
+    const arrows = document.querySelectorAll('.carousel-arrow');
+    if (isMobile()) {
+      cards.forEach((c, i) => c.classList.toggle('hidden', i !== currentSlide));
+      arrows.forEach(a => a.style.display = 'flex');
+    } else {
+      cards.forEach(c => c.classList.remove('hidden'));
+      arrows.forEach(a => a.style.display = 'none');
+      currentSlide = 0;
+    }
+  }
+
+  function slideCarousel(dir) {
+    if (!isMobile()) return;
+    const cards = document.querySelectorAll('.testi-card');
+    currentSlide = (currentSlide + dir + cards.length) % cards.length;
+    initCarousel();
+  }
+
+  window.addEventListener('resize', initCarousel);
+  initCarousel();
+
+  /* ── Sticky Header ────────────────────────── */
+  const header = document.getElementById('header');
+  function onScroll() {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
+</body>
+</html>
