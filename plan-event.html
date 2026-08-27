@@ -28,20 +28,15 @@
       <p class="required-fields-note">Fields marked with an asterisk (*) are required.</p>
     </section>
 
-    <form id="event-inquiry-form" class="event-inquiry-form" action="https://formsubmit.co/support@twelfthandarlington.com" method="POST">
-      <input type="hidden" name="_subject" value="New Twelfth &amp; Arlington Event Inquiry" />
-      <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="_url" value="https://twelfthandarlington.com/plan-event.html" />
-      <input type="hidden" name="_next" value="https://twelfthandarlington.com/thank-you.html" />
-      <input type="hidden" name="_autoresponse" value="Thank you for contacting Twelfth &amp; Arlington Music Group. We have received your event inquiry and appreciate the opportunity to be considered for your celebration. A member of our team will review the details you provided and respond as soon as possible. We look forward to connecting with you and learning more about how we can help create an exceptional experience for you and your guests. Warm regards, Twelfth &amp; Arlington Music Group" />
-      <input class="form-honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off" />
+    <form id="event-inquiry-form" class="event-inquiry-form">
+      <input class="form-honeypot" type="text" name="website" tabindex="-1" autocomplete="off" />
       <fieldset>
         <legend>Your Information</legend>
         <div class="form-fields two-columns">
-          <label><span class="field-label">First Name *</span><input type="text" name="First name" autocomplete="given-name" required /></label>
-          <label><span class="field-label">Last Name *</span><input type="text" name="Last name" autocomplete="family-name" required /></label>
+          <label><span class="field-label">First Name *</span><input type="text" name="first_name" autocomplete="given-name" required /></label>
+          <label><span class="field-label">Last Name *</span><input type="text" name="last_name" autocomplete="family-name" required /></label>
           <label><span class="field-label">Email Address *</span><input type="email" name="email" autocomplete="email" required /></label>
-          <label><span class="field-label">Phone Number *</span><input type="tel" name="Phone" autocomplete="tel" required /></label>
+          <label><span class="field-label">Phone Number *</span><input type="tel" name="phone" autocomplete="tel" required /></label>
         </div>
       </fieldset>
 
@@ -49,7 +44,7 @@
         <legend>Event Details</legend>
         <div class="form-fields two-columns">
           <label><span class="field-label">Event Type *</span>
-            <select name="Event type" required>
+            <select name="event_type" required>
               <option value="">Select an event</option>
               <option>Wedding</option>
               <option>Corporate Event</option>
@@ -59,12 +54,12 @@
               <option>Other</option>
             </select>
           </label>
-          <label><span class="field-label">Event Date *</span><input id="event-date" type="date" name="Event date" required /></label>
-          <label>Venue Name<input type="text" name="Venue" /></label>
-          <label><span class="field-label">City and State *</span><input type="text" name="Location" placeholder="Atlanta, GA" required /></label>
-          <label>Estimated Guest Count<input type="number" name="Guest count" min="1" inputmode="numeric" /></label>
+          <label><span class="field-label">Event Date *</span><input id="event-date" type="date" name="event_date" required /></label>
+          <label>Venue Name<input type="text" name="venue" /></label>
+          <label><span class="field-label">City and State *</span><input type="text" name="location" placeholder="Atlanta, GA" required /></label>
+          <label>Estimated Guest Count<input type="number" name="guest_count" min="1" inputmode="numeric" /></label>
           <label>Estimated Entertainment Budget
-            <select name="Budget">
+            <select name="budget">
               <option value="">Select a range</option>
               <option>Under $5,000</option>
               <option>$5,000–$10,000</option>
@@ -80,12 +75,12 @@
         <legend>Entertainment</legend>
         <p class="field-help">Select everything you’re interested in.</p>
         <div class="service-options">
-          <label><input type="checkbox" name="Services" value="City Heat live band" /> <span>City Heat Live Band</span></label>
-          <label><input type="checkbox" name="Services" value="DJ Xperience" /> <span>DJXperience</span></label>
-          <label><input type="checkbox" name="Services" value="Ceremony music" /> <span>Ceremony Music</span></label>
-          <label><input type="checkbox" name="Services" value="Cocktail hour music" /> <span>Cocktail Hour Music</span></label>
-          <label><input type="checkbox" name="Services" value="Sound and production" /> <span>Sound &amp; Production</span></label>
-          <label><input type="checkbox" name="Services" value="Not sure" /> <span>Help Me Decide</span></label>
+          <label><input type="checkbox" name="services" value="City Heat live band" /> <span>City Heat Live Band</span></label>
+          <label><input type="checkbox" name="services" value="DJ Xperience" /> <span>DJXperience</span></label>
+          <label><input type="checkbox" name="services" value="Ceremony music" /> <span>Ceremony Music</span></label>
+          <label><input type="checkbox" name="services" value="Cocktail hour music" /> <span>Cocktail Hour Music</span></label>
+          <label><input type="checkbox" name="services" value="Sound and production" /> <span>Sound &amp; Production</span></label>
+          <label><input type="checkbox" name="services" value="Not sure" /> <span>Help Me Decide</span></label>
         </div>
       </fieldset>
 
@@ -93,10 +88,10 @@
         <legend>Your Vision</legend>
         <div class="form-fields">
           <label>Tell us about your event, preferred music, schedule, or special requests.
-            <textarea name="Event vision" rows="6" placeholder="What would make this event unforgettable?"></textarea>
+            <textarea name="event_vision" rows="6" placeholder="What would make this event unforgettable?"></textarea>
           </label>
           <label>How did you hear about us?
-            <select name="Referral source">
+            <select name="referral_source">
               <option value="">Select one</option>
               <option>Google</option>
               <option>Instagram</option>
@@ -111,7 +106,7 @@
       </fieldset>
 
       <div class="form-submit-row">
-        <p>By submitting, you agree to be contacted about your event.</p>
+        <p id="form-status" aria-live="polite">By submitting, you agree to be contacted about your event.</p>
         <button class="btn-gold" type="submit">Request My Proposal</button>
       </div>
     </form>
