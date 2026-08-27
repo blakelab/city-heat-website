@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plan Your Event | Twelfth &amp; Arlington Music Group</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="form-page">
+  <header id="header" class="form-header">
+    <a class="logo-block form-logo" href="index.html" aria-label="Return to home">
+      <div class="logo-name">TWELFTH <span class="amp">&amp;</span> ARLINGTON</div>
+      <div class="logo-mg"><span class="dash"></span> MUSIC GROUP <span class="dash"></span></div>
+      <div class="logo-featuring">Featuring</div>
+      <div class="logo-script">City Heat</div>
+      <div class="logo-sub">Band Atlanta</div>
+    </a>
+    <a href="index.html" class="form-back"><i class="fa fa-arrow-left"></i> Back to Website</a>
+  </header>
+
+  <main class="event-form-page">
+    <section class="event-form-intro">
+      <span class="section-label">Start Planning</span>
+      <h1>Tell Us About Your Event</h1>
+      <p>Share a few details and our team will follow up about availability, entertainment options, and a proposal tailored to your celebration.</p>
+      <p class="required-fields-note">Fields marked with an asterisk (*) are required.</p>
+    </section>
+
+    <form id="event-inquiry-form" class="event-inquiry-form" action="https://formsubmit.co/support@twelfthandarlington.com" method="POST">
+      <input type="hidden" name="_subject" value="New Twelfth &amp; Arlington Event Inquiry" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_url" value="https://twelfthandarlington.com/plan-event.html" />
+      <input type="hidden" name="_next" value="https://twelfthandarlington.com/thank-you.html" />
+      <input type="hidden" name="_autoresponse" value="Thank you for contacting Twelfth &amp; Arlington Music Group. We have received your event inquiry and appreciate the opportunity to be considered for your celebration. A member of our team will review the details you provided and respond as soon as possible. We look forward to connecting with you and learning more about how we can help create an exceptional experience for you and your guests. Warm regards, Twelfth &amp; Arlington Music Group" />
+      <input class="form-honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off" />
+      <fieldset>
+        <legend>Your Information</legend>
+        <div class="form-fields two-columns">
+          <label><span class="field-label">First Name *</span><input type="text" name="First name" autocomplete="given-name" required /></label>
+          <label><span class="field-label">Last Name *</span><input type="text" name="Last name" autocomplete="family-name" required /></label>
+          <label><span class="field-label">Email Address *</span><input type="email" name="email" autocomplete="email" required /></label>
+          <label><span class="field-label">Phone Number *</span><input type="tel" name="Phone" autocomplete="tel" required /></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Event Details</legend>
+        <div class="form-fields two-columns">
+          <label><span class="field-label">Event Type *</span>
+            <select name="Event type" required>
+              <option value="">Select an event</option>
+              <option>Wedding</option>
+              <option>Corporate Event</option>
+              <option>Private Party</option>
+              <option>Gala or Fundraiser</option>
+              <option>Festival or Public Event</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label><span class="field-label">Event Date *</span><input id="event-date" type="date" name="Event date" required /></label>
+          <label>Venue Name<input type="text" name="Venue" /></label>
+          <label><span class="field-label">City and State *</span><input type="text" name="Location" placeholder="Atlanta, GA" required /></label>
+          <label>Estimated Guest Count<input type="number" name="Guest count" min="1" inputmode="numeric" /></label>
+          <label>Estimated Entertainment Budget
+            <select name="Budget">
+              <option value="">Select a range</option>
+              <option>Under $5,000</option>
+              <option>$5,000–$10,000</option>
+              <option>$10,000–$20,000</option>
+              <option>$20,000+</option>
+              <option>Not sure yet</option>
+            </select>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Entertainment</legend>
+        <p class="field-help">Select everything you’re interested in.</p>
+        <div class="service-options">
+          <label><input type="checkbox" name="Services" value="City Heat live band" /> <span>City Heat Live Band</span></label>
+          <label><input type="checkbox" name="Services" value="DJ Xperience" /> <span>DJXperience</span></label>
+          <label><input type="checkbox" name="Services" value="Ceremony music" /> <span>Ceremony Music</span></label>
+          <label><input type="checkbox" name="Services" value="Cocktail hour music" /> <span>Cocktail Hour Music</span></label>
+          <label><input type="checkbox" name="Services" value="Sound and production" /> <span>Sound &amp; Production</span></label>
+          <label><input type="checkbox" name="Services" value="Not sure" /> <span>Help Me Decide</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Your Vision</legend>
+        <div class="form-fields">
+          <label>Tell us about your event, preferred music, schedule, or special requests.
+            <textarea name="Event vision" rows="6" placeholder="What would make this event unforgettable?"></textarea>
+          </label>
+          <label>How did you hear about us?
+            <select name="Referral source">
+              <option value="">Select one</option>
+              <option>Google</option>
+              <option>Instagram</option>
+              <option>Facebook</option>
+              <option>Venue or Event Planner</option>
+              <option>Friend or Previous Client</option>
+              <option>Saw City Heat Perform</option>
+              <option>Other</option>
+            </select>
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="form-submit-row">
+        <p>By submitting, you agree to be contacted about your event.</p>
+        <button class="btn-gold" type="submit">Request My Proposal</button>
+      </div>
+    </form>
+  </main>
+
+  <footer class="form-footer">
+    <p>Questions? <a href="mailto:support@twelfthandarlington.com">support@twelfthandarlington.com</a> · <a href="tel:+16787136482">(678) 713-6482</a></p>
+  </footer>
+  <script src="js/plan-event.js"></script>
+</body>
+</html>
