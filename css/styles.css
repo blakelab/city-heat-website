@@ -895,15 +895,28 @@
       text-align: center;
       background: #f7f4ee;
     }
+    .video-showcase-inner {
+      width: 100%;
+      max-width: 1180px;
+      margin-inline: auto;
+      text-align: center;
+    }
+    #video-showcase .section-label {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
     #video-showcase h2 {
       margin: 8px 0 clamp(26px, 3vw, 42px);
+      width: 100%;
+      text-align: center;
       font-family: 'Playfair Display', serif;
       font-size: clamp(30px, 4.5vw, 58px);
       color: var(--text-dark);
     }
     .video-showcase-grid {
-      width: min(1180px, 100%);
-      margin: 0 auto;
+      width: 100%;
+      margin-inline: auto;
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       justify-content: center;
@@ -1406,8 +1419,13 @@
     /* ── 768px — tablet portrait ── */
     @media (max-width: 768px) {
       .video-showcase-grid {
-        grid-template-columns: minmax(0, 640px);
-        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .youtube-video {
+        width: 100%;
+        max-width: 640px;
       }
       nav#main-nav:not(.open) { display: none; }
       .btn-availability { display: none; }
