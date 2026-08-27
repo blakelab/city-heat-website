@@ -888,6 +888,43 @@
     .dj-star-two { right: 8%; bottom: 6%; font-size: clamp(16px, 2vw, 28px); }
 
     /* ═══════════════════════════════════════════
+       VIDEO SHOWCASE
+    ════════════════════════════════════════════ */
+    #video-showcase {
+      padding: clamp(56px, 7vw, 92px) var(--section-x);
+      text-align: center;
+      background: #f7f4ee;
+    }
+    #video-showcase h2 {
+      margin: 8px 0 clamp(26px, 3vw, 42px);
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 4.5vw, 58px);
+      color: var(--text-dark);
+    }
+    .video-showcase-grid {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(16px, 2.4vw, 30px);
+    }
+    .youtube-video {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      background: #080808;
+      border: 5px solid #fff;
+      box-shadow: 0 14px 34px rgba(17, 17, 17, .16);
+    }
+    .youtube-video iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* ═══════════════════════════════════════════
        TESTIMONIALS
     ════════════════════════════════════════════ */
     #testimonials {
@@ -1364,6 +1401,7 @@
 
     /* ── 768px — tablet portrait ── */
     @media (max-width: 768px) {
+      .video-showcase-grid { grid-template-columns: 1fr; }
       nav#main-nav:not(.open) { display: none; }
       .btn-availability { display: none; }
       .hamburger { display: flex; }
