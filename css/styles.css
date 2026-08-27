@@ -906,10 +906,14 @@
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
+      justify-content: center;
+      align-items: center;
       gap: clamp(16px, 2.4vw, 30px);
     }
     .youtube-video {
       position: relative;
+      width: 100%;
+      margin-inline: auto;
       overflow: hidden;
       aspect-ratio: 16 / 9;
       background: #080808;
@@ -1401,7 +1405,10 @@
 
     /* ── 768px — tablet portrait ── */
     @media (max-width: 768px) {
-      .video-showcase-grid { grid-template-columns: 1fr; }
+      .video-showcase-grid {
+        grid-template-columns: minmax(0, 640px);
+        justify-content: center;
+      }
       nav#main-nav:not(.open) { display: none; }
       .btn-availability { display: none; }
       .hamburger { display: flex; }
