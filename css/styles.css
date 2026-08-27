@@ -811,6 +811,7 @@
       height: 100%;
       max-width: none;
       object-fit: cover;
+      cursor: pointer;
     }
     .dj-video-wash {
       position: absolute;

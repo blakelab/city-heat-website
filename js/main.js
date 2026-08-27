@@ -31,10 +31,7 @@
   const djVideo = document.querySelector('#djxperience video');
   const djSoundToggle = document.querySelector('.dj-sound-toggle');
   if (djVideo && djSoundToggle) {
-    djSoundToggle.addEventListener('click', () => {
-      djVideo.muted = !djVideo.muted;
-      if (djVideo.paused) djVideo.play().catch(() => {});
-
+    const updateDjSoundButton = () => {
       const soundIsOn = !djVideo.muted;
       djSoundToggle.setAttribute('aria-pressed', String(soundIsOn));
       djSoundToggle.setAttribute('aria-label', soundIsOn ? 'Turn DJXperience video sound off' : 'Turn DJXperience video sound on');
@@ -42,7 +39,28 @@
         ? 'fa-solid fa-volume-high'
         : 'fa-solid fa-volume-xmark';
       djSoundToggle.querySelector('span').textContent = soundIsOn ? 'Sound Off' : 'Sound On';
-    });
+    };
+
+    const toggleDjSound = async () => {
+      const turnSoundOn = djVideo.muted;
+      djVideo.volume = 1;
+      djVideo.muted = !turnSoundOn;
+
+      if (turnSoundOn) {
+        try {
+          await djVideo.play();
+        } catch (error) {
+          djVideo.muted = true;
+        }
+      }
+
+      updateDjSoundButton();
+    };
+
+    djSoundToggle.addEventListener('click', toggleDjSound);
+    djVideo.addEventListener('click', toggleDjSound);
+    djVideo.addEventListener('volumechange', updateDjSoundButton);
+    updateDjSoundButton();
   }
 
   /* ── Video Modal ──────────────────────────── */
